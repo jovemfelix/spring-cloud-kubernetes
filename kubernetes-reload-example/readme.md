@@ -1,21 +1,34 @@
-## Kubernetes Reload Example
+# Kubernetes Reload Example
 
 This example demonstrate how to use the reload feature to change the configuration of a spring-boot application at runtime.
 
 The application consists of a timed bean that periodically prints a message to the console. 
 The message can be changed using a config map.
 
-### Running the example
+## Running the example
 
 When using Openshift, you must assign at least the `view` role to the *default* service account in the current project:
 
-```
+```bash
 oc policy add-role-to-user view --serviceaccount=default
 ```
 
-You can deploy the application using the fabric8 maven plugin:
+### You can deploy the application using:
 
+#### 1) Red Hat S2i existent imagem
+
+```bash
+oc new-app redhat-openjdk18-openshift:1.4~https://github.com/jovemfelix/spring-cloud-kubernetes.git \
+	--context-dir=kubernetes-reload-example  \
+	--name=kubernetes-reload-example \
+	-lapp=kubernetes-reload-example
 ```
+
+or
+
+#### 2) the fabric8 maven plugin:
+
+```bash
 mvn clean install fabric8:build fabric8:deploy
 ```
 

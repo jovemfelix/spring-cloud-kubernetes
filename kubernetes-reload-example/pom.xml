@@ -43,8 +43,7 @@
         <fabric8.maven.plugin.version>4.4.1</fabric8.maven.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-<!--        <spring-boot.version>1.5.1.RELEASE</spring-boot.version>-->
-        <spring-boot.version>2.2.8.RELEASE</spring-boot.version>
+        <spring-boot.version>1.5.1.RELEASE</spring-boot.version>
         <version.spring-cloud-kubernetes-core>0.1.6</version.spring-cloud-kubernetes-core>
         <version.lombok>1.18.4</version.lombok>
     </properties>
