@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kubernetes-reload-example
+data:
+  application.properties: |-
+    # here is the name that you should call the: 'configmap'
+    spring.application.name=kubernetes-reload-example
+
+    # here is the name that you should call the: 'secrets' if not will search for 'spring.application.name'
+    #spring.cloud.kubernetes.secrets.name=app-secret
+
+    bean.message="Hello from OpenShift, Yet Again 2!"
+
+    spring.cloud.kubernetes.reload.enabled=true
+    spring.cloud.kubernetes.secrets.enableApi=true
+
+    #spring.cloud.kubernetes.secrets.enabled=true
+
+    spring.cloud.kubernetes.reload.mode=polling
+    spring.cloud.kubernetes.reload.period=100
+
+    spring.cloud.kubernetes.reload.monitoring-config-maps=true
+    spring.cloud.kubernetes.reload.monitoring-secrets=true
