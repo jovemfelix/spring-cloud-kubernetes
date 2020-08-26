@@ -73,6 +73,8 @@ Changes are applied immediately when using the *event* reload mode.
 
 > The name of the config map (*"kubernetes-reload-example"*) should match with the name of the application (spring.application.name) as declared in the *application.properties* file.
 
+
+
 ## Reference
 
 - Plugin Documentation - https://github.com/fabric8io/spring-cloud-kubernetes
@@ -131,4 +133,4 @@ Changes are applied immediately when using the *event* reload mode.
       serviceAccountName: <service_account_name>
     ```
 
-    
+- Another option with the different approach (technology agnostic) can be found at [](https://github.com/stakater/Reloader)
