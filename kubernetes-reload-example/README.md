@@ -15,7 +15,7 @@ oc policy add-role-to-user view --serviceaccount=default
 
 ### You can deploy the application using:
 
-#### 1) Red Hat S2i existent imagem
+#### 1) with a Red Hat S2i imagem
 
 ```bash
 oc new-app redhat-openjdk18-openshift:1.4~https://github.com/jovemfelix/spring-cloud-kubernetes.git \
@@ -43,7 +43,7 @@ metadata:
   name: kubernetes-reload-example
 data:
   application.properties: |-
-    spring.application.name=app-config
+    spring.application.name=kubernetes-reload-example
 
     bean.message=Hello from OpenShift, Yet Again!
     spring.cloud.kubernetes.reload.enabled=true
@@ -59,19 +59,19 @@ A sample config map is provided with this example in the *config-map.yml* file.
 To deploy the config map, just run the following command on Openshift (just replace `oc` with `kubectl` if you are using plain Kubernetes):
 
 ```bash
-oc create -f src/k8s/configmap.yml
+oc apply -f src/k8s/configmap.yml
 ```
 
 As soon as the config map is deployed, the output of the application changes accordingly.
 The config map can be now edited with the following command:
 
 ```
-oc edit configmap reload-example
+oc edit configmap kubernetes-reload-example
 ```
 
 Changes are applied immediately when using the *event* reload mode.
 
-The name of the config map (*"reload-example"*) matches the name of the application as declared in the *application.properties* file.
+> The name of the config map (*"kubernetes-reload-example"*) should match with the name of the application (spring.application.name) as declared in the *application.properties* file.
 
 ## Reference
 
